@@ -1,3 +1,10 @@
+{% extends 'base.html' %}
+
+{% block header_text %}Start a new To-Do list{% endblock %}
+
+{% block from_action %}/lists/new{% endblock %}
+
+<!--
 <html>
     <head>
         <title>To-Do lists</title>
@@ -5,9 +12,9 @@
     <body>
         <h1>Start a new To-Do list</h1>
         <form method="POST" action="/lists/new">
-        <p style="text-align: center;">
+        // <p style="text-align: center;"> 
             <input name="item_text" id="id_new_item" placeholder="Enter a to-do item"/>
-        </p>
+        // </p>
         {% csrf_token %}
         </form>
         <table id="id_list_table">
@@ -17,3 +24,4 @@
         </table>
     </body>
 </html>
+-->
