@@ -1,26 +1,27 @@
-from django.test import LiveServerTestCase
+#from django.test import LiveServerTestCase
+
+# ref: http://bit.ly/Suv4Ip
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 #import unittest
 
 
 #class NewVisitorTest(unittest.TestCase):
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
 
-
     def tearDown(self):
+        #browser.refresh()
         self.browser.quit()
-
 
     def check_for_row_in_list_table(self, row_text):
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn(row_text, [row.text for row in rows])
-
 
     def test_can_start_a_list_and_retrive_it_later(self):
         #self.browser.get('http://localhost:8000')
@@ -88,7 +89,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertNotIn('Buy peacock feathers', page_text)
         self.assertIn('Buy milk', page_text)
 
-        self.fail('Finish the test!')
+        #self.fail('Finish the test!')
 
     def test_layout_and_styling(self):
         self.browser.get(self.live_server_url)
@@ -102,8 +103,6 @@ class NewVisitorTest(LiveServerTestCase):
             512,
             delta=10
         )
-
-
 
 
 # if __name__ == '__main__':
