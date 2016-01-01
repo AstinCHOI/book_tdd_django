@@ -60,4 +60,3 @@ others
 *.sqlite3
 .DS_Store
 virtualenv/
-static/
