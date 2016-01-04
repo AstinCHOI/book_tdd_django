@@ -6,22 +6,33 @@ from django.utils.html import escape
 
 from lists.views import home_page
 from lists.models import Item, List
+from lists.forms import ItemForm
+
+import re
 
 
 # $ grep -E "class|def" lists/tests.py
 class HomePageTest(TestCase):
+    
+    # maxDiff = None
 
-    def test_root_url_resolves_to_home_page_view(self):
-        found = resolve('/')
+    # def test_root_url_resolves_to_home_page_view(self):
+    #     found = resolve('/')
 
-        self.assertEqual(found.func, home_page)
+    #     self.assertEqual(found.func, home_page)
 
     
-    def test_home_page_returns_correct_html(self):
-        request = HttpRequest()
+    # def test_home_page_returns_correct_html(self):
+    #     request = HttpRequest()
+    #     response = home_page(request)
 
-        response = home_page(request)
-        expected_html = render_to_string('home.html')
+    #     # CSRF tokens don't get render_to_string'd
+    #     csrf_regex = r'<input[^>]+csrfmiddlewaretoken[^>]+>'
+    #     observed_html = re.sub(csrf_regex, '', response.content.decode())
+    #     expected_html = render_to_string('home.html', {'form': ItemForm()})
+        
+    #     #self.assertMultiLineEqual(response.content.decode(), expected_html)
+    #     self.assertMultiLineEqual(observed_html, expected_html)
 
         # diff due to csrf hidden tag
         # self.assertEqual(response.content.decode(), expected_html)
@@ -46,6 +57,14 @@ class HomePageTest(TestCase):
 
     #     self.assertIn('itemey 1', response.content.decode())
     #     self.assertIn('itemey 2', response.content.decode())
+
+    def test_home_page_renders_home_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'home.html')
+
+    def test_home_page_uses_item_form(self):
+        response = self.client.get('/')
+        self.assertIsInstance(response.context['form'], ItemForm)
 
 
 class ListViewTest(TestCase):
