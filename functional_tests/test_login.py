@@ -29,11 +29,11 @@ class LoginTest(FunctionalTest):
 
         self.browser.find_element_by_id(
             'authentication_email'
-        ).send_keys('asciineo@gmail.com')
+        ).send_keys('astinchoi@mockmyid.com')
         self.browser.find_element_by_tag_name('button').click()
 
         self.switch_to_new_window('To-Do')
 
         self.wait_for_element_with_id('id_logout')
         navbar = self.browser.find_element_by_css_selector('.navbar')
-        self.assertIn('asciineo@gmail.com', navbar.text)
+        self.assertIn('astinchoi@mockmyid.com', navbar.text)
