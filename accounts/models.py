@@ -1,3 +1,19 @@
+from django.db import models
+from django.utils import timezone
+
+
+class User(models.Model):
+    email = models.EmailField(primary_key=True)
+    last_login = models.DateTimeField(default=timezone.now)
+    REQUIRED_FIELDS = ()
+    USERNAME_FIELD = 'email'
+
+    def is_authenticated(self):
+        return True
+
+
+# spike mozilla persona
+
 # from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 # from django.db import models
 
@@ -13,7 +29,7 @@
 # class ListUser(AbstractBaseUser, PermissionsMixin):
 #     email = models.EmailField(primary_key=True)
 #     USERNAME_FIELD = 'email'
-#     # REQUEST_FIELDS = ['email', 'height']
+#     # REQUIRED_FIELDS = ['email', 'height']
 
 #     objects = ListUserManager()
 
@@ -24,3 +40,4 @@
 #     @property
 #     def is_active(self):
 #         return True
+
