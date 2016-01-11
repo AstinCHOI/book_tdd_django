@@ -8,6 +8,7 @@ def persona_login(request):
         login(request, user)
     return HttpResponse('OK')
 
+
 # spike mozilla persona
 # import sys
 # from django.contrib.auth import authenticate

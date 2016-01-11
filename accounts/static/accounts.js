@@ -6,6 +6,9 @@ var initialize = function (navigator, user, token, urls) {
 		navigator.id.request();
 		// navigator.id.doSomethingElse();
 	});
+	$('#id_logout').on('click', function () {
+        navigator.id.logout();
+    });
 
 	navigator.id.watch({
 		loggedInUser: user,
@@ -13,13 +16,20 @@ var initialize = function (navigator, user, token, urls) {
 			var deferred = $.post(
 				urls.login,
 				{ assertion: assertion, csrfmiddlewaretoken: token }
-			);
-			// .done(function() { window.location.reload(); })
-			// .fail(function() { navigator.id.logout(); });
-			deferred.done(function () { window.location.reload(); }) 
-			deferred.fail(function () { navigator.id.logout(); });
+			)
+			.done(function() { window.location.reload(); })
+			.fail(function() { navigator.id.logout(); });
+			// deferred.done(function () { window.location.reload(); }) 
+			// deferred.fail(function () { navigator.id.logout(); });
 		},
-		onlogout: function() {},
+		onlogout: function() {
+			var deferred = $.post(
+				urls.logout,
+				{ csrfmiddlewaretoken: token }
+			)
+			.done(function() { window.location.reload(); })
+			.fail(function() { navigator.id.logout(); });
+		}
 	});
 };
 
