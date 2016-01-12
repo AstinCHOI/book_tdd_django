@@ -1,3 +1,4 @@
+import logging
 import requests
 from django.contrib.auth import get_user_model
 
