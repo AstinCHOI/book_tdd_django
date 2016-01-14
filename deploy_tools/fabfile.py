@@ -2,6 +2,7 @@ from fabric.contrib.files import append, exists, sed
 from fabric.api import env, local, run
 import random
 
+
 REPO_URL = 'https://github.com/AstinCHOI/book_tdd_django.git'
 
 def deploy():
