@@ -19,7 +19,7 @@ class MyListsTest(FunctionalTest):
         # session.save()
 
         if self.against_staging:
-            session_key = create_session_on_Server(self.server_host, email)
+            session_key = create_session_on_server(self.server_host, email)
         else:
             session_key = create_pre_authenticated_session(email)
         

@@ -24,6 +24,7 @@ SECRET_KEY = 'e(^lyn9w#)8c%c%qje1y)k@g7a1$)!b21&uib@ptvfycx+_2iz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# DOMAIN = "dsa-test-staging.astinchoi.com"
 DOMAIN = "localhost"
 
 ALLOWED_HOSTS = [DOMAIN]
