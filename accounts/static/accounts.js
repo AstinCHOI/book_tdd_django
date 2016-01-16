@@ -27,7 +27,7 @@ var initialize = function (navigator, user, token, urls) {
 				urls.logout,
 				{ csrfmiddlewaretoken: token }
 			)
-			.done(function() { window.location.reload(); })
+			.done(function() { window.location.replace('/'); })
 			.fail(function() { navigator.id.logout(); });
 		}
 	});

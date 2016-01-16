@@ -67,3 +67,6 @@ class MyListsTest(FunctionalTest):
             self.browser.find_element_by_link_text('My lists').click(),
             None
         )
+
+        header_text = self.browser.find_element_by_tag_name('h1').text
+        self.assertIn('To-Do', header_text)
