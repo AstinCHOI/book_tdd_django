@@ -56,7 +56,8 @@ docs/_build/
 # PyBuilder
 target/
 
-others
+# Others
 *.sqlite3
 .DS_Store
 virtualenv/
+superlists/secrets.py
