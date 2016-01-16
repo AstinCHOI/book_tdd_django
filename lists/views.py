@@ -67,7 +67,8 @@ def new_list(request):
         # list_ = List.objects.create()
 
         list_ = List()
-        list_.owner = request.user
+        if request.user.is_authenticated():
+            list_.owner = request.user
         list_.save()
         form.save(for_list=list_)
         return redirect(list_)
