@@ -67,6 +67,10 @@ def new_list(request):
         return render(request, 'home.html', {"form": form})
 
 
+def my_lists(request, email):
+    return render(request, 'my_lists.html')
+
+
 # def add_item(request, list_id):
 #     list_ = List.objects.get(id=list_id)
 #     Item.objects.create(text=request.POST['item_text'], list=list_)
