@@ -60,4 +60,4 @@ target/
 *.sqlite3
 .DS_Store
 virtualenv/
-superlists/secrets.py
+secrets.py
