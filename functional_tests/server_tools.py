@@ -1,4 +1,7 @@
 from django.conf import settings
+
+from . import secrets
+
 from os import path
 import subprocess
 
@@ -12,7 +15,7 @@ def create_session_on_server(host, email):
             'create_session_on_server:email={}'.format(email),
             '--host={}'.format(host),
             '--hide=everything,status',
-            '--password={}'.format(settings.STAGING_PASSWORD),
+            '--password={}'.format(secrets.STAGING_PASSWORD),
         ],
         cwd=THIS_FOLDER
     ).decode().strip()
@@ -21,7 +24,7 @@ def reset_database(host):
     subprocess.check_call(
         ['fab', 'reset_database',
          '--host={}'.format(host),
-         '--password={}'.format(settings.STAGING_PASSWORD),
+         '--password={}'.format(secrets.STAGING_PASSWORD),
         ],
         cwd=THIS_FOLDER
     )
