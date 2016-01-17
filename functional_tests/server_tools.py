@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-=======
 from django.conf import settings
 
 from . import secrets
 
->>>>>>> more-isolation
 from os import path
-from . import secrets
-
 import subprocess
 
 
