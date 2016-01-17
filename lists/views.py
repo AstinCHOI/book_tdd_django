@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from lists.models import Item, List
-from lists.forms import ExistingListItemForm, ItemForm
+from lists.forms import ExistingListItemForm, ItemForm, NewListForm
 
 
 User = get_user_model()
@@ -47,22 +47,40 @@ def view_list(request, list_id):
     })
 
 
-def new_list(request):
-    # list_ = List.objects.create()
-    # item = Item.objects.create(text=request.POST['text'], list=list_)
-    # try:
-    #     item.full_clean()
-    #     item.save()
-    # except ValidationError:
-    #     list_.delete()
-    #     error = "You can't have an empty list item"
-    #     return render(request, 'home.html', {"error" : error})
-    # # return redirect('/lists/the-only-list-in-the-world/')
-    # # return redirect('/lists/%d/' % (list_.id,))
-    # return redirect(list_)
+# def new_list(request):
+#     # list_ = List.objects.create()
+#     # item = Item.objects.create(text=request.POST['text'], list=list_)
+#     # try:
+#     #     item.full_clean()
+#     #     item.save()
+#     # except ValidationError:
+#     #     list_.delete()
+#     #     error = "You can't have an empty list item"
+#     #     return render(request, 'home.html', {"error" : error})
+#     # # return redirect('/lists/the-only-list-in-the-world/')
+#     # # return redirect('/lists/%d/' % (list_.id,))
+#     # return redirect(list_)
 
-    form = ItemForm(data=request.POST)
+#     form = ItemForm(data=request.POST)
+#     if form.is_valid():
+#         # Item.objects.create(text=request.POST['text'], list=list_)
+#         # list_ = List.objects.create()
+
+#         list_ = List()
+#         if request.user.is_authenticated():
+#             list_.owner = request.user
+#         list_.save()
+#         form.save(for_list=list_)
+#         return redirect(list_)
+#     else:
+#         return render(request, 'home.html', {'form': form})
+
+
+# def new_list2(request):
+def new_list(request):
+    form = NewListForm(data=request.POST)
     if form.is_valid():
+<<<<<<< HEAD
         # Item.objects.create(text=request.POST['text'], list=list_)
         # list_ = List.objects.create()
 
@@ -71,9 +89,11 @@ def new_list(request):
             list_.owner = request.user
         list_.save()
         form.save(for_list=list_)
+=======
+        list_ = form.save(owner=request.user)
+>>>>>>> more-isolation
         return redirect(list_)
-    else:
-        return render(request, 'home.html', {"form": form})
+    return render(request, 'home.html', {'form': form})
 
 
 def my_lists(request, email):
