@@ -22,7 +22,7 @@ class MyListsTest(FunctionalTest):
             session_key = create_session_on_server(self.server_host, email)
         else:
             session_key = create_pre_authenticated_session(email)
-        print(session_key)
+        
         self.browser.get(self.server_url + "/404_no_such_url/")
         self.browser.add_cookie(dict(
         	name=settings.SESSION_COOKIE_NAME,
