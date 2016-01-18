@@ -52,13 +52,14 @@ class FunctionalTest(StaticLiveServerTestCase):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(DEFAULT_WAIT)
 
-    def wait_for(self,function_with_assertion, timeout=DEFAULT_WAIT):
+    def wait_for(self, function_with_assertion, timeout=DEFAULT_WAIT):
         start_time = time.time()
         while time.time() - start_time < timeout:
             try:
                 return function_with_assertion()
             except (AssertionError, WebDriverException):
                 time.sleep(0.1)
+        # one more try, which will raise any errors if they are outstanding
         return function_with_assertion()
 
     def tearDown(self):
