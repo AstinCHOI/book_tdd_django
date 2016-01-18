@@ -12,7 +12,7 @@ from datetime import datetime
 import sys, os, time
 
 
-DEFAULT_WAIT = 5
+DEFAULT_WAIT = 10
 SCREEN_DUMP_LOCATION = os.path.abspath(
     os.path.join(os.path.dirname(__file__), 'screendumps')
 )
