@@ -1,16 +1,18 @@
-#from django.test import LiveServerTestCase
+# from django.test import LiveServerTestCase
 
 # ref: http://bit.ly/Suv4Ip
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import WebDriverException
 
 from .server_tools import reset_database
 
 from datetime import datetime
-import sys, os
+import sys, os, time
 
 
+DEFAULT_WAIT = 5
 SCREEN_DUMP_LOCATION = os.path.abspath(
     os.path.join(os.path.dirname(__file__), 'screendumps')
 )
@@ -46,8 +48,18 @@ class FunctionalTest(StaticLiveServerTestCase):
     def setUp(self):
         if self.against_staging:
             reset_database(self.server_host)
+        
         self.browser = webdriver.Firefox()
-        self.browser.implicitly_wait(3)
+        self.browser.implicitly_wait(DEFAULT_WAIT)
+
+    def wait_for(self,function_with_assertion, timeout=DEFAULT_WAIT):
+        start_time = time.time()
+        while time.time() - start_time < timeout:
+            try:
+                return function_with_assertion()
+            except (AssertionError, WebDriverException):
+                time.sleep(0.1)
+        return function_with_assertion()
 
     def tearDown(self):
         # #browser.refresh()
