@@ -62,5 +62,3 @@ class LoginTest(FunctionalTest):
 
         self.browser.refresh()
         self.wait_to_be_logged_out(email=TEST_EMAIL)
-
-        self.fail()
