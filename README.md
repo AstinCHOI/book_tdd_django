@@ -1,100 +1,128 @@
-Book: Test-Driven Development with Python - O'Reilly Media
-Site: http://chimera.labs.oreilly.com/books/1234000000754/index.html
+### Cheat Sheet(Test-Driven Development with Python - O'Reilly Media)
 
-Cheat Sheet
+ref: http://chimera.labs.oreilly.com/books/1234000000754/index.html
 
-Chapter 1. Getting Django Set Up Using a Functional Test
-1) Obey the Testing Goat.
-$ git rm -r --cached superlists/__pycache__
-$ echo “*.pyc” >> .gitignore
 
-Chapter 2. Extending Our Functional Test Using the unittest Module
-1) Functional Test = Acceptance Test = End-to-End Test
-2) assertEqual, assertTrue, assertFalse
-3) User Story, Expected failure
+#### Chapter 1. Getting Django Set Up Using a Functional Test  
+1) Obey the Testing Goat.  
 
-Chapter 3. Testing a Simple Home Page with Unit Tests
-1) Functional Test for User / Unit Test for Programmer
-2) Unit test for view
-$ git log --oneline
+\`
+$ git rm -r --cached superlists/__pycache__  
+$ echo “*.pyc” >> .gitignore  
+\`  
+  
+#### Chapter 2. Extending Our Functional Test Using the unittest Module  
+1) Functional Test = Acceptance Test = End-to-End Test  
+2) assertEqual, assertTrue, assertFalse  
+3) User Story, Expected failure  
+  
+  
+#### Chapter 3. Testing a Simple Home Page with Unit Tests  
+1) Functional Test for User / Unit Test for Programmer  
+2) Unit test for view  
+  
+\`
+$ git log --oneline  
+\`  
+  
+#### Chapter 4. What Are We Doing with All These Tests?  
+1) For the tomorrow. just obey the Testing Goat.  
+2) Refactoring : code improving without the result  
+3) test process  
 
-Chapter 4. What Are We Doing with All These Tests?
-1) For the tomorrow. just obey the Testing Goat.
-2) Refactoring : code improving without the result
-3) test process
+\`
 writing test
 if pass test:
-  if needn't refactoring:
-    goto writing test
+    if needn't refactoring:
+      goto writing test
 writing min code
+\`
+  
+  
+#### Chapter 5. Saving User Input  
+1) POST request  
+2) csrf(Cross-Site Request Forgery)  
+3) Red (code fail) -> Green (min code) -> Refactor (.. removing dup) and Triangulation  
+4) code smell, Three strikes and Refactor  
+5) django ORM  
+6) redirection after POST  
+7) each tests for only a function  
+8) job note  
+  
+\`
+$ python3 manage.py makemigration  
+$ python3 manage.py migrate  
+\`  
+  
 
-Chapter 5. Saving User Input
-1) POST request
-2) csrf(Cross-Site Request Forgery)
-3) Red (code fail) -> Green (min code) -> Refactor (.. removing dup) and Triangulation
-4) code smell, Three strikes and Refactor
-5) django ORM
-6) redirection after POST
-7) each tests for only a function
-8) job note
-$ python3 manage.py makemigration
-$ python3 manage.py migrate
+#### Chapter 6. Getting to the Minimum Viable Site  
+1) Agile - gradual steps  
+2) YAGNI(You Ain’t Gonna need It)  
+3) django - assertTemplateUsed  
+4) refactoring cat  
+  
+\`
+$ python3 manage test # both  
+$ python3 manage test functional_tests # FT  
+$ python3 manage.py test lists # UT  
+$ pip3 install --upgrade selenium  
+$ grep -E “class|def” lists/tests.py  
+\`  
+  
+#### Chapter 7. Prettification: Layout and Styling, and What to Test About It  
+1) bootstrap - jumbotron  
+2) django template  
+3) static files, LiveServerTestCase  
+  
+\`
+$ git reset --hard  
+$ python3 manage.py collectstatic # STATIC_ROOT  
+\`  
+  
 
-Chapter 6. Getting to the Minimum Viable Site
-1) Agile - gradual steps
-2) YAGNI(You Ain’t Gonna need It)
-3) django - assertTemplateUsed
-4) refactoring cat
-$ python3 manage test # both
-$ python3 manage test functional_tests # FT
-$ python3 manage.py test lists # UT
-$ pip3 install --upgrade selenium
-$ grep -E “class|def” lists/tests.py
+#### Chapter 8. Testing Deployment Using a Staging Site  
+1) mail to obeythetestinggoat@gmail.com  
+2) ssh-key gen: https://www.linode.com/docs/networking/ssh/use-public-key-authentication-with-ssh/  
+3) set server env (nginx, virtualenv)  
 
-Chapter 7. Prettification: Layout and Styling, and What to Test About It
-1) bootstrap - jumbotron
-2) django template
-3) static files, LiveServerTestCase
-
-$ git reset --hard
-$ python3 manage.py collectstatic # STATIC_ROOT
-
-Chapter 8. Testing Deployment Using a Staging Site
-1) mail to obeythetestinggoat@gmail.com
-2) ssh-key gen: https://www.linode.com/docs/networking/ssh/use-public-key-authentication-with-ssh/
-3) set server env (nginx, virtualenv)
-server$ export SITENAME=dsa-test-staging.astinchoi.com
-server$ mkdir -p ~/sites/$SITENAME/database, static, virtualenv, source
-server$ git clone https://github.com/AstinCHOI/book_tdd_django ~/sites/$SITENAME/source
-$ virtualenv --python=python3 ../virtualenv
-$ source ../virtualenv/bin/activate
-(virtualenv)$ pip install django
-(virtualenv)$ pip freeze > requirements.txt
-(virtualenv)$ deactivate
-# in server virtualenv
-server$ ../virtualenv/bin/pip install -r requirements.txt
-server$ sudo vim /etc/nginx/sites-available/dsa-test-staging.astinchoi.com
+\`
+server$ export SITENAME=dsa-test-staging.astinchoi.com  
+server$ mkdir -p ~/sites/$SITENAME/database, static, virtualenv, source  
+server$ git clone https://github.com/AstinCHOI/book_tdd_django ~/sites/$SITENAME/source  
+$ virtualenv --python=python3 ../virtualenv  
+$ source ../virtualenv/bin/activate  
+(virtualenv)$ pip install django  
+(virtualenv)$ pip freeze > requirements.txt  
+(virtualenv)$ deactivate  
+# in server virtualenv  
+server$ ../virtualenv/bin/pip install -r requirements.txt  
+server$ sudo vim /etc/nginx/sites-available/dsa-test-staging.astinchoi.com  
+\`
+  
+\`
 server {
-  listen 80;
-  server_name dsa-test-staging.astinchoi.com;
+    listen 80;
+    server_name dsa-test-staging.astinchoi.com;
 
-  location / {
-    proxy_pass http://localhost:8000;
-  }
+    location / {
+      proxy_pass http://localhost:8000;
+    }
 }
-server$ sudo ln -s /etc/nginx/sites-available/$SITENAME /etc/nginx/sites-enabled/$SITENAME
-server$ sudo rm /etc/nginx/sites-enabled/default
-server$ sudo service nginx reload
-server$ ../virtualenv/bin/python3 manage.py runserver
+\`
+  
+\`
+server$ sudo ln -s /etc/nginx/sites-available/$SITENAME /etc/nginx/sites-enabled/$SITENAME  
+server$ sudo rm /etc/nginx/sites-enabled/default  
+server$ sudo service nginx reload  
+server$ ../virtualenv/bin/python3 manage.py runserver  
+$ python3 manage.py test functional_tests/ --liveserver=dsa-test-staging.astinchoi.com  
+server$ gunicorn superlists.wsgi:application  
+server$ ../virtualenv/bin/python3 manage.py collectstatic --noinput  
+server$ ls ../static/  
+server$ sudo vim /etc/nginx/sites-available/dsa-test-staging.astinchoi.com  
+\`
 
-$ python3 manage.py test functional_tests/ --liveserver=dsa-test-staging.astinchoi.com
-
-server$ gunicorn superlists.wsgi:application
-
-server$ ../virtualenv/bin/python3 manage.py collectstatic --noinput
-server$ ls ../static/
-
-server$ sudo vim /etc/nginx/sites-available/dsa-test-staging.astinchoi.com
+\`
 server {
   listen 80;
   server_name dsa-test-staging.astinchoi.com;
@@ -107,12 +135,16 @@ server {
     proxy_pass http://localhost:8000;
   }
 }
-
-server$ sudo service nginx reload
-server$ gunicorn superlists.wsgi:application
-$ python3 manage.py test functional_tests/ --liveserver=dsa-test-staging.astinchoi.com
-
-server$ sudo vim /etc/nginx/sites-available/dsa-test-staging.astinchoi.com
+\`
+  
+\`
+server$ sudo service nginx reload  
+server$ gunicorn superlists.wsgi:application  
+$ python3 manage.py test functional_tests/ --liveserver=dsa-test-staging.astinchoi.com  
+server$ sudo vim /etc/nginx/sites-available/dsa-test-staging.astinchoi.com  
+\`
+  
+\`
 server {
   listen 80;
   server_name dsa-test-staging.astinchoi.com;
@@ -126,17 +158,22 @@ server {
     proxy_pass http://unix:/tmp/dsa-test-staging.astinchoi.com.socket;
   }
 }
+\`
 
-server$ sudo service nginx reload
-server$ gunicorn --bind unix:/tmp/dsa-test-staging.astinchoi.com.socket superlists.wsgi:application
-$ python3 manage.py test functional_tests/ --liveserver=dsa-test-staging.astinchoi.com
-
-server$ vim superlists/settings.py
-
+\`
+server$ sudo service nginx reload  
+server$ gunicorn --bind unix:/tmp/dsa-test-staging.astinchoi.com.socket superlists.wsgi:application  
+$ python3 manage.py test functional_tests/ --liveserver=dsa-test-staging.astinchoi.com    
+server$ vim superlists/settings.py  
+\`
+\`
 DEBUG = FALSE
 ALLOWED_HOSTS = ['dsa-test-staging.astinchoi.com']
-
-server$ sudo vim /etc/init/gunicorn-dsa-test-staging.astinchoi.com.conf
+\`
+\`
+server$ sudo vim /etc/init/gunicorn-dsa-test-staging.astinchoi.com.conf  
+\`
+\`
 description "Gunicorn server for dsa-test-staging.astinchoi.com"
 
 start on net-device-up
@@ -150,10 +187,11 @@ chdir /home/ubuntu/sites/dsa-test-staging.astinchoi.com/source
 exec ../virtualenv/bin/gunicorn \
     --bind unix:/tmp/dsa-test-staging.astinchoi.com.socket \
     superlists.wsgi:application
-
+\`
+\`
 $ sudo start gunicorn-dsa-test-staging.astinchoi.com
-
-4) Provisioning
+\`
+4) Provisioning  
 - suppose that there are user account and home folder
 - apt-get install nginx git python-pip
 - pip install virtualenv
