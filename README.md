@@ -344,16 +344,18 @@ implement easily duck typing
 - Git, ShiningPanda, Xvfb plugin  
 - Xvfb (X Virtual FrameBuffer and ref: pyvirtualdisplay)  
 - Set up screenshots and HTML dumps for failures  
+
+    server$ sudo aptitude install x11-xkb-utils  
+    server$ sudo aptitude install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic  
+    server$ sudo aptitude install xserver-xorg-core  
+    server$ sudo aptitude remove dbus  
+    server$ xvfb-run firefox
+    
 https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin  
 http://manpages.ubuntu.com/manpages/trusty/man1/xvfb-run.1.html  
-http://blog.martin-lyness.com/archives/installing-xvfb-on-ubuntu-9-10-karmic-koala  
-server$ sudo aptitude install x11-xkb-utils  
-server$ sudo aptitude install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic  
-server$ sudo aptitude install xserver-xorg-core  
-server$ sudo aptitude remove dbus  
-server$ xvfb-run firefox  
+http://blog.martin-lyness.com/archives/installing-xvfb-on-ubuntu-9-10-karmic-koala
+http://scraping.pro/use-headless-firefox-scraping-linux/
   
-
 3) QUnit javascript test  
 - install node.js
     $ npm install -g phantomjs
