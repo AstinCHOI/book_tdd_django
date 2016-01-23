@@ -318,7 +318,7 @@ https://factoryboy.readthedocs.org/
 
 #### Chapter 18. Finishing “My Lists”: Outside-In TDD
 1) Outside in : outer (GUI) to inner code, like we did (TDD)  
-- Programming by wishful thinking
+- Programming by wishful thinking  
 2) Inside out : sub to upper component, common  
 3) @property decorator..  
 implement easily duck typing  
