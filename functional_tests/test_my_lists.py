@@ -68,9 +68,8 @@ class MyListsTest(FunctionalTest):
         )
         
         self.browser.find_element_by_id('id_logout').click()
-        
         self.assertEqual(
-            self.browser.find_element_by_link_text('My lists').click(),
-            None
+            self.browser.find_elements_by_link_text('My lists'),
+            []
         )
         

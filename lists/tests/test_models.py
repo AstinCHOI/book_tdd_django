@@ -112,7 +112,7 @@ class ListModelTest(TestCase):
     def test_list_owner_is_optional(self):
         List().full_clean() # should not raise
 
-    def test_create_returnsnew_list_object(self):
+    def test_create_returns_new_list_object(self):
         # self.fail()
         returned = List.create_new(first_item_text='new item list')
         new_list = List.objects.first()
@@ -123,3 +123,10 @@ class ListModelTest(TestCase):
         Item.objects.create(list=list_, text='first item')
         Item.objects.create(list=list_, text='second item')
         self.assertEqual(list_.name, 'first item')
+
+    def test_can_share_with_another_user(self):
+        list_ = List.objects.create()
+        user = User.objects.create(email='a@b.com')
+        list_.shared_with.add('a@b.com')
+        list_in_db = List.objects.get(id=list_.id)
+        self.assertIn(user, list_in_db.shared_with.all())

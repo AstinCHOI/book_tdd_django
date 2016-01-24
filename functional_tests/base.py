@@ -7,8 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import WebDriverException
 
-from .server_tools import reset_database
-from .server_tools import create_session_on_server
+from .server_tools import reset_database, create_session_on_server
 from .management.commands.create_session import create_pre_authenticated_session
 
 from datetime import datetime

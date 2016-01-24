@@ -13,22 +13,23 @@ var initialize = function (navigator, user, token, urls) {
 	navigator.id.watch({
 		loggedInUser: user,
 		onlogin: function(assertion) {
-			var deferred = $.post(
+			// var deferred = 
+			$.post(
 				urls.login,
 				{ assertion: assertion, csrfmiddlewaretoken: token }
 			)
 			.done(function() { window.location.reload(); })
 			.fail(function() { navigator.id.logout(); });
-			// deferred.done(function () { window.location.reload(); }) 
+			// deferred.done(function () { window.location.reload(); });
 			// deferred.fail(function () { navigator.id.logout(); });
 		},
 		onlogout: function() {
-			var deferred = $.post(
-				urls.logout,
-				{ csrfmiddlewaretoken: token }
-			)
-			.done(function() { window.location.replace('/'); })
-			.fail(function() { navigator.id.logout(); });
+			// $.post(
+			// 	urls.logout,
+			// 	{ csrfmiddlewaretoken: token }
+			// )
+			// .done(function() { window.location.replace('/'); })
+			// .fail(function() { navigator.id.logout(); });
 		}
 	});
 };

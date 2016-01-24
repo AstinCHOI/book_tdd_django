@@ -16,7 +16,8 @@ class SharingTest(FunctionalTest):
         self.addCleanup(lambda: quit_if_possible(edith_browser))
 
         oni_browser = webdriver.Firefox()
-        self.addCleanup(lambda: quit_if_possible('oniciferous@example.com'))
+        self.addCleanup(lambda: quit_if_possible(oni_browser))
+        self.browser = oni_browser
         self.create_pre_authenticated_session('oniciferous@example.com')
 
         self.browser = edith_browser
@@ -48,14 +49,14 @@ class SharingTest(FunctionalTest):
         self.browser = oni_browser
         HomePage(self).go_to_home_page().go_to_my_lists_page()
 
-        self.browser.find_element_by_link_text('Get Help').click()
+        self.browser.find_element_by_link_text('Get help').click()
 
         self.wait_for(lambda: self.assertEqual(
             list_page.get_list_owner(),
             'edith@example.com'
         ))
 
-        list_page.add_new_item('Hi, Edith!')
+        list_page.add_new_item('Hi Edith!')
 
         self.browser = edith_browser
         self.browser.refresh()

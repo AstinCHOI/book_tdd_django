@@ -373,6 +373,14 @@ http://qunitjs.com/plugins/ (https://github.com/jonkemp/qunit-phantomjs-runner)
 5) CI with staging, not production  
   
   
+
+#### Chapter 21. The Token Social Bit, the Page Pattern, and an Exercise for the Reader  
+1) AddCleanup func  
+http://bit.ly/SuW8Hv  
+2) DRY(Don't Repeat Yourself) to FT  
+3) Page Pattern - use individual page object
+  
+  
 #### Extra. Command in need
 1) git  
     $ git branch {branch_name}
@@ -402,3 +410,13 @@ http://qunitjs.com/plugins/ (https://github.com/jonkemp/qunit-phantomjs-runner)
 6) port check  
     $ netstat -tnlp
     $ nmap localhost
+
+7) ubuntu user command  
+    $ cut -d: -f1 /etc/passwd
+http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users
+  
+    $ echo '' | sudo -S my_command
+http://stackoverflow.com/questions/21659637/how-to-fix-sudo-no-tty-present-and-no-askpass-program-specified-error
+  
+    $ vim /etc/sudoers
+http://stackoverflow.com/questions/11880070/how-to-run-a-script-as-root-in-jenkins
