@@ -413,11 +413,65 @@ http://bit.ly/SuW8Hv
 2) SingleObjectMixin Class
 3) Single-assertion unit tests help refactoring  
   
+  
+#### Appendix C. Provisioning with Ansible
+1) https://github.com/AstinCHOI/book_tdd_django/tree/master/deploy_tools/ansible  
+2) Use Vagrant to Spin Up a Local VM (with VirtualBox)  
+- Vagrant is computer software that creates and configures virtual development environments.  
+  
+    $ ansible-playbook -i ansible.inventory provision.ansible.yaml --limit=staging --user=ubuntu --private-key={private_key}
+  
+  
+#### Appendix D. Testing Database Migrations
+situation: add duplication constraint  
+  
+1) Copying Test Data from the Live Site  
 
+    $ scp ubuntu@dsa-test-staging.astinchoi.com:\
+    /home/ubuntu/site/dsa-test-staging.astinchoi.com/database/db.sqlite3 .
+    $ mv ../database/db.sqlite3 ../database/db.sqlite3.bak
+    $ mv db.sqlite3 ../database/db.sqlite3
 
+2) Confirming the Error
 
+    $ python3 manage.py migrate --migrate
+
+3) Inserting a Data Migration
+
+    $ git rm lists/lists/migrations/0005_list_item_unique_together.py
+    $ python3 manage.py makemigrations lists --empty
+    ...
+    $ mv lists/migrations/0005_*.py lists/migrations/0005_remove_duplicates.py
+  
+- ref: https://docs.djangoproject.com/en/dev/topics/migrations/#data-migrations  
+- code: https://github.com/AstinCHOI/book_tdd_django/blob/master/lists/migrations/0005_remove_duplicates.py  
+
+4) Re-creating the Old Migration  
+  
+    $ python3 manage.py makemigrations
+    ...
+    $ mv lists/migrations/0006_* lists/migrations/0006_unique_together.py
+
+5) Testing the New Migrations Together
+  
+    $ cd deploy_tools
+    $ fab deploy:host=ubuntu@dsa-test-staging.astinchoi.com -i {private_key}
+    server$ sudo restart dsa-test-staging.astinchoi.com
+    $ python3 manage.py test functional_tests --liveserver=dsa-test-staging.astinchoi.com
+    ...
+    $ fab deploy:host=ubuntu@dsa-test.astinchoi.com -i {private_key}
+    ...
+  
+
+6) Advice
+- Be wary of migrations which introduce constraints  
+- Test migrations for speed  
+- Be extremely careful if using a dump of production data  
+
+  
 #### Extra. Command in need
 1) git  
+
     $ git branch {branch_name}
     $ git branch -d {branch_name}
     $ git checkout -b {branch_name}
@@ -426,27 +480,33 @@ http://bit.ly/SuW8Hv
     $ git push origin master
   
 2) view log  
-    $ tail -f /var/log/nginx/error.log
 
+    $ tail -f /var/log/nginx/error.log
+  
 3) view process  
+
     $ ps aux | grep gunicorn
     $ ps -eAf | grep -i xvfb
   
 4) ubuntu AWS account password login activation  
+
     ubuntu$ sudo passwd ubuntu
     ubuntu$ sudo vim /etc/ssh/sshd_config
     PasswordAuthentication yes
     ubuntu$ sudo reload ssh
   
 5) disk amount  
+
     $ df -h
     $ du -sk {path}
-
+  
 6) port check  
+
     $ netstat -tnlp
     $ nmap localhost
-
+  
 7) ubuntu user command  
+
     $ cut -d: -f1 /etc/passwd
 http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users
   
