@@ -61,7 +61,7 @@ class MyListsTest(FunctionalTest):
         second_list_url = self.browser.current_url
 
         self.browser.find_element_by_link_text('My lists').click()
-        time.sleep(10)
+        time.sleep(30)
         self.browser.find_element_by_link_text('Click cows').click()
         # self.assertEqual(self.browser.current_url, second_list_url)
         self.wait_for(
