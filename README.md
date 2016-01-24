@@ -410,7 +410,7 @@ http://bit.ly/SuW8Hv
   
 #### Appendix B. Django Class-Based Views
 1) Function based vs Class-based vs Class-Based Generic Views  
-2) SingleObjectMixin Class
+2) SingleObjectMixin Class  
 3) Single-assertion unit tests help refactoring  
   
   
@@ -437,7 +437,7 @@ situation: add duplication constraint
     $ python3 manage.py migrate --migrate
 
 3) Inserting a Data Migration
-
+  
     $ git rm lists/lists/migrations/0005_list_item_unique_together.py
     $ python3 manage.py makemigrations lists --empty
     ...
@@ -463,11 +463,42 @@ situation: add duplication constraint
     ...
   
 
-6) Advice
+6) Advices
 - Be wary of migrations which introduce constraints  
 - Test migrations for speed  
 - Be extremely careful if using a dump of production data  
+  
 
+#### Appendix E. Behaviour-Driven Development (BDD)
+1) a methodology rather than a toolset  
+https://en.wikipedia.org/wiki/Behavior-driven_development  
+2) [Lettuce](http://lettuce.it/) and [behave](http://pythonhosted.org/behave/), [behave-django](https://pythonhosted.org/behave-django/)  
+
+    $ pip3 install behave-django
+    $ python3 manage.py behave
+  
+3) As-a/I want to/So that & Given/When/Then Clauses  
+4) BDD encourages structured, reusable test code  
+5) It may come at the expense of readability  
+  
+  
+#### Appendix G. What to Do Next
+1) Notifications—Both on the Site and by Email  
+- django-notifications  
+- IMAPClient library  
+2) Switch to Postgres  
+3) Run Your Tests Against Different Browsers  
+4) 404 and 500 Tests  
+5) The Django Admin Site  
+6) Write Some Security Tests  
+7) Test for Graceful Degradation (if Persona went down?)  
+8) Caching and Performance Testing (using Apache ab teat and memcached)  
+9) JavaScript MVC Frameworks (Backbone.js, Angular.js and React)  
+10) Async and Websockets (torando, gevent and twisted)  
+11) Switch to Using py.test  
+12) Check out [coverage.py](https://coverage.readthedocs.org)  
+13) Client-Side Encryption  
+  
   
 #### Extra. Command in need
 1) git  
