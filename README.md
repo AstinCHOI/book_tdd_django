@@ -378,9 +378,41 @@ http://qunitjs.com/plugins/ (https://github.com/jonkemp/qunit-phantomjs-runner)
 1) AddCleanup func  
 http://bit.ly/SuW8Hv  
 2) DRY(Don't Repeat Yourself) to FT  
-3) Page Pattern - use individual page object
+3) Page Pattern - use individual page object  
   
   
+#### Chapter 22. Fast Tests, Slow Tests, and Hot Lava
+1) Pure isolated test vs Integrated test  
+2) Integration test, System test, Funiconal and Acceptance test  
+3) The holy flow state (Concentration)  
+4) "Unknown unknowns."  
+5) Fast Test, Slow Test, and Boundaries  
+- Fast Slow Test: https://www.youtube.com/watch?v=RAxiiRPHS9k  
+- Boundaries: ttps://www.youtube.com/watch?v=eOYal8elnZk  
+- https://www.destroyallsoftware.com/screencasts  
+6) Ports and Adapter(Core: isolated test / others: integrated test)    
+- Ref: http://chimera.labs.oreilly.com/books/1234000000754/aph.html#GOOSGBT  
+- TDD: https://vimeo.com/83960706  
+- The Clean Architecture: http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html  
+- Hexagonal architecture: http://alistair.cockburn.us/Hexagonal+architecture  
+7) Writing Fast and Efficient Unit Tests for Django  
+- https://www.youtube.com/watch?v=bsmFVb8guMU  
+8) Inverting the Pyramid  
+- http://watirmelon.com/tag/testing-pyramid/  
+9) Integrated tests are a scam  
+- http://www.infoq.com/presentations/integration-tests-scam  
+- https://vimeo.com/80533536  
+- http://blog.thecodewhisperer.com/2010/01/31/using-integration-tests-mindfully-a-case-study/  
+- http://blog.thecodewhisperer.com/2009/04/08/part-2-some-hidden-costs-of-integrated-tests/  
+10) A pragmatic view  
+- http://martinfowler.com/bliki/UnitTest.html  
+  
+  
+#### Appendix B. Django Class-Based Views
+1) Function based vs Class-based vs Class-Based Generic Views  
+
+
+
 #### Extra. Command in need
 1) git  
     $ git branch {branch_name}
