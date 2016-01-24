@@ -358,10 +358,13 @@ http://scraping.pro/use-headless-firefox-scraping-linux/
   
 3) QUnit javascript test  
 - install node.js
-    $ npm install -g phantomjs
+
+    $ npm install -g phantomjs  
+  
 http://qunitjs.com/plugins/ (https://github.com/jonkemp/qunit-phantomjs-runner)  
 
-- run test
+- run test  
+
     $ phantomjs superlists/static/tests/runner.js lists/static/tests/tests.html
     $ phantomjs superlists/static/tests/runner.js accounts/static/tests/tests.html
   
