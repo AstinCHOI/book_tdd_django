@@ -109,8 +109,10 @@ class ViewAndAddToList(CreateView, SingleObjectMixin):
 
     def get_form(self, form_class=form_class):
         self.object = self.get_object()
-        return form_class(for_list=self.object, data=self.request.POST)
-
+        if self.request.method == 'POST':
+            return form_class(for_list=self.object, data=self.request.POST)
+        else:
+            return form_class(for_list=self.object)
 
 
 def my_lists(request, email):

@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from lists.views \
-import my_lists, share_list, NewListView, ViewAndAddToList
-# new_list, view_list
+import my_lists, share_list, new_list, view_list, NewListView, ViewAndAddToList
+
 
 
 urlpatterns = [	
