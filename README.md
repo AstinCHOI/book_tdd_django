@@ -410,6 +410,9 @@ http://bit.ly/SuW8Hv
   
 #### Appendix B. Django Class-Based Views
 1) Function based vs Class-based vs Class-Based Generic Views  
+2) SingleObjectMixin Class
+3) Single-assertion unit tests help refactoring  
+  
 
 
 
