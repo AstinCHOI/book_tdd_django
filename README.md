@@ -241,10 +241,10 @@ https://docs.djangoproject.com/en/1.9/ref/forms/validation/
 
 #### Chapter 13. Dipping Our Toes, Very Tentatively, into JavaScript
 1) Setting Up a Basic JavaScript Test Runner  
-- http://qunitjs.com/
-- ref: https://mochajs.org/
+- http://qunitjs.com/  
+- ref: https://mochajs.org/  
 2) javascript syntax check tool  
-- jslint, jshint
+- jslint, jshint  
 3) jQuery namespace $  
 http://api.jquery.com/ready/  
   
@@ -260,7 +260,7 @@ http://api.jquery.com/ready/
 - prototype check  
 http://stackoverflow.com/questions/249969/why-are-tdd-spikes-called-spikes  
 3) customising authentication  
-https://docs.djangoproject.com/en/1.9/topics/auth/customizing/
+https://docs.djangoproject.com/en/1.9/topics/auth/customizing/  
 4) de-spiking  
 - rewrite prototype code using tdd  
 5) Mocking  
@@ -275,7 +275,7 @@ https://code.google.com/p/selenium/source/browse/py/selenium/webdriver/support/w
 8) stub, mock, fake, spy  
 https://leanpub.com/mocks-fakes-stubs  
 9) sinon.js mock  
-- especially help to ajax test
+- especially help to ajax test  
 http://sinonjs.org/  
 10) QUnit setup and teardown, Testing Ajax  
 http://sinonjs.org/docs/#server  
@@ -283,7 +283,7 @@ http://api.jquery.com/jQuery.post/
 11) javascript deferred  
 http://otaqui.com/blog/1637/introducing-javascript-promises-aka-futures-in-google-chrome-canary/  
   
-
+  
 #### Chapter 16. Server-Side Authentication and Mocking in Python
 1) from unites.mock ..  
 2) django authentication(user login)  
@@ -315,7 +315,7 @@ https://factoryboy.readthedocs.org/
   
     $ sudo restart gunicorn-dsa-test-staging.astinchoi.com
   
-
+  
 #### Chapter 18. Finishing “My Lists”: Outside-In TDD
 1) Outside in : outer (GUI) to inner code, like we did (TDD)  
 - Programming by wishful thinking  
@@ -487,8 +487,8 @@ https://en.wikipedia.org/wiki/Behavior-driven_development
   
 #### Appendix G. What to Do Next
 1) Notifications—Both on the Site and by Email  
-- django-notifications  
-- IMAPClient library  
+- django-notifications
+- IMAP Client library
 2) Switch to Postgres  
 3) Run Your Tests Against Different Browsers  
 4) 404 and 500 Tests  
