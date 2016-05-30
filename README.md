@@ -239,12 +239,13 @@ https://docs.djangoproject.com/en/1.9/ref/forms/validation/
     $ python3 manage.py test functional_tests.[file_name]
     $ python3 manage.py test functional_tests.[file_name].[class].[function]
 
+
 #### Chapter 13. Dipping Our Toes, Very Tentatively, into JavaScript
 1) Setting Up a Basic JavaScript Test Runner  
-- http://qunitjs.com/  
-- ref: https://mochajs.org/  
+http://qunitjs.com/  
+ref: https://mochajs.org/  
 2) javascript syntax check tool  
-- jslint, jshint  
+jslint, jshint  
 3) jQuery namespace $  
 http://api.jquery.com/ready/  
   
@@ -256,16 +257,16 @@ http://api.jquery.com/ready/
 #### Chapter 15. User Authentication, Integrating Third-Party Plugins, and Mocking with JavaScript  
 1) Mozilla Persona (BrowserID)  
 2) Spiking  
-- check new API or new solution  
-- prototype check  
+check new API or new solution  
+prototype check  
 http://stackoverflow.com/questions/249969/why-are-tdd-spikes-called-spikes  
 3) customising authentication  
 https://docs.djangoproject.com/en/1.9/topics/auth/customizing/  
 4) de-spiking  
-- rewrite prototype code using tdd  
+rewrite prototype code using tdd  
 5) Mocking  
-- unit test for external service.  
-- simulation for external API.  
+unit test for external service.  
+simulation for external API.  
 https://mockmyid.com/  
 http://personatestuser.org/  
 6) selenium - WebDriverWait (explicit wait)  
@@ -318,7 +319,7 @@ https://factoryboy.readthedocs.org/
   
 #### Chapter 18. Finishing “My Lists”: Outside-In TDD
 1) Outside in : outer (GUI) to inner code, like we did (TDD)  
-- Programming by wishful thinking  
+Programming by wishful thinking  
 2) Inside out : sub to upper component, common  
 3) @property decorator..  
 implement easily duck typing  
@@ -332,7 +333,8 @@ implement easily duck typing
 
 #### Chapter 20. Continuous Integration (CI)
 1) Jenkins  
-- Set up CI as soon as possible for your project
+Set up CI as soon as possible for your project
+
     server$ wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
     server$ echo deb http://pkg.jenkins-ci.org/debian binary/ | sudo tee \
     /etc/apt/sources.list.d/jenkins.list
@@ -341,9 +343,9 @@ implement easily duck typing
     server$ sudo apt-get install git firefox python3 python-virtualenv xvfb
 
 2) Jenkins Plugin  
-- Git, ShiningPanda, Xvfb plugin  
-- Xvfb (X Virtual FrameBuffer and ref: pyvirtualdisplay)  
-- Set up screenshots and HTML dumps for failures  
+Git, ShiningPanda, Xvfb plugin  
+Xvfb (X Virtual FrameBuffer and ref: pyvirtualdisplay)  
+Set up screenshots and HTML dumps for failures  
 
     server$ sudo aptitude install x11-xkb-utils  
     server$ sudo aptitude install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic  
@@ -357,13 +359,13 @@ http://blog.martin-lyness.com/archives/installing-xvfb-on-ubuntu-9-10-karmic-koa
 http://scraping.pro/use-headless-firefox-scraping-linux/
   
 3) QUnit javascript test  
-- install node.js
+to install node.js
 
     $ npm install -g phantomjs  
   
 http://qunitjs.com/plugins/ (https://github.com/jonkemp/qunit-phantomjs-runner)  
 
-- run test  
+run test  
 
     $ phantomjs superlists/static/tests/runner.js lists/static/tests/tests.html
     $ phantomjs superlists/static/tests/runner.js accounts/static/tests/tests.html
