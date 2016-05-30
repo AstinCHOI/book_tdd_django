@@ -390,25 +390,25 @@ http://bit.ly/SuW8Hv
 3) The holy flow state (Concentration)  
 4) "Unknown unknowns."  
 5) Fast Test, Slow Test, and Boundaries  
-- Fast Slow Test: https://www.youtube.com/watch?v=RAxiiRPHS9k  
-- Boundaries: ttps://www.youtube.com/watch?v=eOYal8elnZk  
-- https://www.destroyallsoftware.com/screencasts  
+Fast Slow Test: https://www.youtube.com/watch?v=RAxiiRPHS9k  
+Boundaries: ttps://www.youtube.com/watch?v=eOYal8elnZk  
+https://www.destroyallsoftware.com/screencasts  
 6) Ports and Adapter(Core: isolated test / others: integrated test)    
-- Ref: http://chimera.labs.oreilly.com/books/1234000000754/aph.html#GOOSGBT  
-- TDD: https://vimeo.com/83960706  
-- The Clean Architecture: http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html  
-- Hexagonal architecture: http://alistair.cockburn.us/Hexagonal+architecture  
+Ref: http://chimera.labs.oreilly.com/books/1234000000754/aph.html#GOOSGBT  
+TDD: https://vimeo.com/83960706  
+The Clean Architecture: http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html  
+Hexagonal architecture: http://alistair.cockburn.us/Hexagonal+architecture  
 7) Writing Fast and Efficient Unit Tests for Django  
-- https://www.youtube.com/watch?v=bsmFVb8guMU  
+https://www.youtube.com/watch?v=bsmFVb8guMU  
 8) Inverting the Pyramid  
-- http://watirmelon.com/tag/testing-pyramid/  
+http://watirmelon.com/tag/testing-pyramid/  
 9) Integrated tests are a scam  
-- http://www.infoq.com/presentations/integration-tests-scam  
-- https://vimeo.com/80533536  
-- http://blog.thecodewhisperer.com/2010/01/31/using-integration-tests-mindfully-a-case-study/  
-- http://blog.thecodewhisperer.com/2009/04/08/part-2-some-hidden-costs-of-integrated-tests/  
+http://www.infoq.com/presentations/integration-tests-scam  
+https://vimeo.com/80533536  
+http://blog.thecodewhisperer.com/2010/01/31/using-integration-tests-mindfully-a-case-study/  
+http://blog.thecodewhisperer.com/2009/04/08/part-2-some-hidden-costs-of-integrated-tests/  
 10) A pragmatic view  
-- http://martinfowler.com/bliki/UnitTest.html  
+http://martinfowler.com/bliki/UnitTest.html  
   
   
 #### Appendix B. Django Class-Based Views
@@ -420,7 +420,7 @@ http://bit.ly/SuW8Hv
 #### Appendix C. Provisioning with Ansible
 1) https://github.com/AstinCHOI/book_tdd_django/tree/master/deploy_tools/ansible  
 2) Use Vagrant to Spin Up a Local VM (with VirtualBox)  
-- Vagrant is computer software that creates and configures virtual development environments.  
+Vagrant is computer software that creates and configures virtual development environments.  
   
     $ ansible-playbook -i ansible.inventory provision.ansible.yaml --limit=staging --user=ubuntu --private-key={private_key}
   
@@ -446,8 +446,8 @@ situation: add duplication constraint
     ...
     $ mv lists/migrations/0005_*.py lists/migrations/0005_remove_duplicates.py
   
-- ref: https://docs.djangoproject.com/en/dev/topics/migrations/#data-migrations  
-- code: https://github.com/AstinCHOI/book_tdd_django/blob/master/lists/migrations/0005_remove_duplicates.py  
+ref: https://docs.djangoproject.com/en/dev/topics/migrations/#data-migrations  
+code: https://github.com/AstinCHOI/book_tdd_django/blob/master/lists/migrations/0005_remove_duplicates.py  
 
 4) Re-creating the Old Migration  
   
@@ -467,9 +467,9 @@ situation: add duplication constraint
   
 
 6) Advices
-- Be wary of migrations which introduce constraints  
-- Test migrations for speed  
-- Be extremely careful if using a dump of production data  
+Be wary of migrations which introduce constraints  
+Test migrations for speed  
+Be extremely careful if using a dump of production data  
   
 
 #### Appendix E. Behaviour-Driven Development (BDD)
@@ -487,8 +487,8 @@ https://en.wikipedia.org/wiki/Behavior-driven_development
   
 #### Appendix G. What to Do Next
 1) Notifications—Both on the Site and by Email  
-- django-notifications
-- IMAP Client library
+django-notifications  
+IMAP Client library  
 2) Switch to Postgres  
 3) Run Your Tests Against Different Browsers  
 4) 404 and 500 Tests  
